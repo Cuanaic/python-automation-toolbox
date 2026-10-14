@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+out/
+split_out/
+report.html
+data/
+*.progress.json
+.DS_Store
