@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Python 自动化工具箱 · 演示</title>
+<style>
+  :root{
+    --bg:#0f1218; --panel:#161b23; --line:#242c38; --fg:#e6e9ef; --dim:#93a1b5;
+    --accent:#4ea1ff; --ok:#3ddc97;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);
+       font:15px/1.7 -apple-system,"Segoe UI","Microsoft YaHei",system-ui,sans-serif;
+       padding:48px 20px 80px}
+  .wrap{max-width:840px;margin:0 auto}
+  h1{font-size:26px;margin:0 0 8px;letter-spacing:.3px}
+  .sub{color:var(--dim);margin:0 0 32px}
+  .badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+  .badge{border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:12px;color:var(--dim)}
+  .badge b{color:var(--ok);font-weight:600}
+  h2{font-size:15px;color:var(--dim);font-weight:600;letter-spacing:1px;
+     text-transform:uppercase;margin:36px 0 14px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+  .card h3{margin:0 0 6px;font-size:15px}
+  .card code{color:var(--accent);font-size:12.5px}
+  .card p{margin:8px 0 0;color:var(--dim);font-size:13px}
+  pre{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+      padding:16px 18px;overflow:auto;font-size:13px;color:#cfd8e6}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .cta{display:inline-block;margin-top:8px;background:var(--accent);color:#08101c;
+       padding:9px 18px;border-radius:8px;font-weight:600;font-size:14px}
+  .cta:hover{text-decoration:none;opacity:.9}
+  footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);
+         color:var(--dim);font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Python 自动化工具箱</h1>
+  <p class="sub">四个命令覆盖四类高频重复劳动：合并表 / 采数据 / 出报表 / 理文件。</p>
+
+  <div class="badges">
+    <span class="badge">License <b>MIT</b></span>
+    <span class="badge">Python <b>3.9+</b></span>
+    <span class="badge">依赖 <b>仅标准库</b></span>
+    <span class="badge">版本 <b>v1.0.0</b></span>
+  </div>
+
+  <h2>工具</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>excel_batch</h3>
+      <code>merge · split · clean</code>
+      <p>Excel / CSV 批量合并、按列拆分、去空行去重去首尾空格。</p>
+    </div>
+    <div class="card">
+      <h3>data_collect</h3>
+      <code>世界银行等公开数据</code>
+      <p>内置限速、失败重试、断点续传，中断了接着跑。</p>
+    </div>
+    <div class="card">
+      <h3>report_gen</h3>
+      <code>CSV → 单文件 HTML</code>
+      <p>图表内嵌，零前端依赖，微信里发出去就能看。</p>
+    </div>
+    <div class="card">
+      <h3>file_organizer</h3>
+      <code>按类型 / 日期归档</code>
+      <p>支持 --dry-run，先看它想怎么挪，再决定动不动。</p>
+    </div>
+  </div>
+
+  <h2>跑一遍</h2>
+<pre>git clone https://github.com/Cuanaic/python-automation-toolbox.git
+cd python-automation-toolbox
+python samples/make_samples.py
+
+python tools/excel_batch.py merge samples/orders_q1.csv samples/orders_q2.csv -o all.csv
+python tools/report_gen.py --input all.csv --title "订单报表" --chart-column 金额 --label-column 月份
+python tools/file_organizer.py --dir ~/Downloads --dry-run</pre>
+
+  <h2>产出长什么样</h2>
+  <p class="sub" style="margin-bottom:16px">下面这份报表就是 <code>report_gen</code> 直接从示例数据生成的 —— 单文件、无外部资源。</p>
+  <a class="cta" href="demo-report.html">打开在线演示报表 →</a>
+
+  <footer>
+    源码：<a href="https://github.com/Cuanaic/python-automation-toolbox">github.com/Cuanaic/python-automation-toolbox</a>
+    · MIT © 2026 Cuanaic
+  </footer>
+
+</div>
+</body>
+</html>
