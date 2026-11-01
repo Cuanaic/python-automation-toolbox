@@ -8,3 +8,4 @@ report.html
 data/
 *.progress.json
 .DS_Store
+all.csv
